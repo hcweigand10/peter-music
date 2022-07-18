@@ -1,6 +1,6 @@
 import React from "react"
 import { faEnvelope, faPhone, faHome } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+// import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "./footer.css"
 
@@ -18,7 +18,7 @@ const Footer = () => {
                 {/* <!--Grid row--> */}
                 <div class="row">
                 {/* <!-- Grid column --> */}
-                <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-2">
+                {/* <div class="col-md-5 col-lg-5 col-xl-5 mx-auto mb-2">
                     <h4 class="text-uppercase text-center mb-2 font-weight-bold">
                     Connect
                     </h4>
@@ -59,7 +59,7 @@ const Footer = () => {
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> */}
                 {/* <!-- Grid column --> */}
 
                 <hr class="w-100 clearfix d-md-none" />
@@ -68,9 +68,9 @@ const Footer = () => {
                     Contact
                     </h4>
                     <ul class="text-center list-unstyled align-items-center">
-                        <li className="mb-1"><FontAwesomeIcon icon={faHome}/> Seattle, WA, US</li>
-                        <li className="mb-1"><FontAwesomeIcon icon={faEnvelope}/> henryweigand10@gmail.com</li>
-                        <li className="mb-1"><FontAwesomeIcon icon={faPhone}/> +1 206-349-9260</li>
+                        <li className="mb-1"><FontAwesomeIcon icon={faHome}/> Friday Harbor, WA</li>
+                        <li className="mb-1"><FontAwesomeIcon icon={faEnvelope}/> peterstrasser@gmail.com</li>
+                        <li className="mb-1"><FontAwesomeIcon icon={faPhone}/> +1 (360) 317-3433</li>
                     </ul>
                 </div>
                 {/* <!-- Grid column --> */}
@@ -86,7 +86,7 @@ const Footer = () => {
                 class="text-center p-3"
                 style={{backgroundColor: "rgba(0, 0, 0, 0.2)"}}
                 >
-            © 2022 Copyright: &nbsp;
+            © Made by &nbsp;
             <a class="text-white" href="https://henryweigand.com/" style={{textIndent: "10px"}}>henryweigand.com</a>
             </div>
         </footer>

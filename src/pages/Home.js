@@ -14,8 +14,8 @@ const Home = () => {
                         
                     </div> */}
                     <div class="col-lg-6">
-                        <h1 class="display-5 fw-bold lh-1 mb-3 home-title">Joe Smith</h1>
-                        <h4 class="lead home-title">President of the United States</h4>
+                        <h1 class="display-5 fw-bold lh-1 mb-3 home-title">Peter Strasser</h1>
+                        <h4 class="lead home-title">Music Instructor</h4>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                         </div>
                     </div>

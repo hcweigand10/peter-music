@@ -37,7 +37,7 @@ const Navbar = () => {
         </button>
           {/* <!-- Navbar brand --> */}
           <Link className="navbar-brand mt-md-0 p-2" to="/" onClick={() => handlePageChange("/")}>
-            Title
+            Peter Strasser
           </Link>
         {/* <!-- Collapsible wrapper --> */}
         <div className={(collapse) ? "navbar-collapse" : "collapse navbar-collapse"} id="navbarSupportedContent">
