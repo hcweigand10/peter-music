@@ -2,9 +2,9 @@ import React, {useState, useEffect} from "react"
 import API from "../utils/api"
 
 const Existing = () => {
-    const [loggedIn, setloggedIn] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(false)
     const [email, setEmail] = useState("")
-    const [token, setToken] = useState("");
+    const [token, setToken] = useState(null);
 
 
     const [loginInfo, setLoginInfo] = useState({
@@ -13,21 +13,22 @@ const Existing = () => {
     })
     
     useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (token) {
-        API.getTokenData(token)
-        .then(data => {
-            if (data.err) {
-                console.log(data.err)
-                localStorage.removeItem("token")
-            } else {
-                setEmail(data.email);
-                setToken(token);
-            }
+        console.log(token)
+        const savedToken = localStorage.getItem("token")
+        if (savedToken) {
+            API.getTokenData(savedToken)
+            .then(data => {
+                if (data.err) {
+                    console.log(data.err)
+                    localStorage.removeItem("token")
+                } else {
+                    setEmail(data.email);
+                    setToken(savedToken);
+                }
             })
             .catch(err => {
-            console.log("bad token")
-            console.log(err);
+                console.log("bad token")
+                console.log(err);
             });
         }
     }, );
@@ -39,7 +40,7 @@ const Existing = () => {
         const data = await API.login(loginInfo.email, loginInfo.studentId)
         console.log(data)
         if (data.token) {
-            setloggedIn(true)
+            setLoggedIn(true)
             setEmail(data.user.email);
             setToken(data.token);
             localStorage.setItem("token", data.token);
@@ -56,14 +57,14 @@ const Existing = () => {
         };
     };
 
-    const logMeOut = ()=>{
-        console.log("Logging out")
-        loggedIn = false;
-        localStorage.removeItem("token");
-        setEmail("");
-        setToken("");
-        window.location.replace('/');
-    }
+    // const logMeOut = ()=>{
+    //     console.log("Logging out")
+    //     setLoggedIn(false);
+    //     localStorage.removeItem("token");
+    //     setEmail("");
+    //     setToken("");
+    //     window.location.replace('/');
+    // }
 
     const handleInputChange = e=>{
         setLoginInfo({
@@ -77,6 +78,7 @@ const Existing = () => {
         <div className="container page-container">
             <h3>Existing</h3>
             {loggedIn ? <div>
+                <h3>{email}</h3>
                 <div className="row">
                     <div className="col-6-md">
                         <h3>Schedule</h3>
