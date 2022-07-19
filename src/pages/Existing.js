@@ -4,8 +4,6 @@ import API from "../utils/api"
 const Existing = () => {
     const [loggedIn, setLoggedIn] = useState(false)
     const [email, setEmail] = useState("")
-    const [token, setToken] = useState(null);
-
 
     const [loginInfo, setLoginInfo] = useState({
         email:"",
@@ -23,7 +21,6 @@ const Existing = () => {
                     localStorage.removeItem("token")
                 } else {
                     setEmail(data.email);
-                    setToken(savedToken);
                 }
             })
             .catch(err => {
@@ -43,7 +40,6 @@ const Existing = () => {
         if (data.token) {
             setLoggedIn(true)
             setEmail(data.user.email);
-            setToken(data.token);
             localStorage.setItem("token", data.token);
         } else {
             alert("Invalid Login Credentials")
@@ -63,7 +59,6 @@ const Existing = () => {
     //     setLoggedIn(false);
     //     localStorage.removeItem("token");
     //     setEmail("");
-    //     setToken("");
     //     window.location.replace('/');
     // }
 
