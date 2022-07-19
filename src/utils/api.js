@@ -16,6 +16,7 @@ const API = {
       .then(res => res.json())
   },
   login: (email, studentId) => {
+    console.log(`${BASEURL}/login`)
     return fetch(`${BASEURL}/login`, {
       method: "POST",
       body: JSON.stringify({
