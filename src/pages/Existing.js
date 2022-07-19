@@ -36,6 +36,7 @@ const Existing = () => {
     const login = async (e) => {
         console.log("LOGGING IN!", loginInfo)
         e.preventDefault()
+        API.checkUrl()
         try {
         const data = await API.login(loginInfo.email, loginInfo.studentId)
         console.log(data)

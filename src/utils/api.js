@@ -6,6 +6,9 @@ const BASEURL = "https://peter-music-backend.herokuapp.com"
 
 
 const API = {
+  checkUrl: () => {
+    console.log(`${BASEURL}/login`)
+  },
   getTokenData: (token) => {
     return fetch(`${BASEURL}/gettokendata`, {
       method: "POST",
@@ -16,7 +19,6 @@ const API = {
       .then(res => res.json())
   },
   login: (email, studentId) => {
-    console.log(`${BASEURL}/login`)
     return fetch(`${BASEURL}/login`, {
       method: "POST",
       body: JSON.stringify({
