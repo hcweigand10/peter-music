@@ -2,7 +2,7 @@
 // const BASEURL = "http://localhost:3001"
 
 // Deployed
-const BASEURL = "https://peter-strasser-music.herokuapp.com"
+const BASEURL = "https://peter-music-backend.herokuapp.com"
 
 
 const API = {
