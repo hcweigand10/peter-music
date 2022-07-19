@@ -11,7 +11,6 @@ const Existing = () => {
     })
     
     useEffect(() => {
-        console.log(token)
         const savedToken = localStorage.getItem("token")
         if (savedToken) {
             API.getTokenData(savedToken)
