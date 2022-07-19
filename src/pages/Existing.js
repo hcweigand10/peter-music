@@ -31,7 +31,7 @@ const Existing = () => {
                 console.log(err);
             });
         }
-    }, );
+    },[]);
 
     const login = async (e) => {
         console.log("LOGGING IN!", loginInfo)
