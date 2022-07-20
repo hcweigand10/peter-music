@@ -7,7 +7,7 @@ const Existing = () => {
         email:"",
         studentId:""
     })
-    const [userObj, setUserObj] = useState({})
+    const [user, setUser] = useState({})
     
     useEffect(() => {
         const savedToken = localStorage.getItem("token")
@@ -18,7 +18,7 @@ const Existing = () => {
                     console.log(data.err)
                     localStorage.removeItem("token")
                 } else {
-                    setEmail(data.email);
+                    console.log(data)
                 }
             })
             .catch(err => {
