@@ -12,6 +12,7 @@ const Existing = () => {
     useEffect(() => {
         const savedToken = localStorage.getItem("token")
         if (savedToken) {
+            console.log()
             API.getTokenData(savedToken)
             .then(data => {
                 if (data.err) {
@@ -37,13 +38,13 @@ const Existing = () => {
         console.log(data)
         if (data.token) {
             setLoggedIn(true)
-            setUserObj(data.user);
+            setUser(data.user);
             localStorage.setItem("token", data.token);
         } else {
             alert("Invalid Login Credentials")
             setLoginInfo({
-            email: "",
-            studentId: ""
+                email: "",
+                studentId: ""
             })
         }
 
