@@ -3,12 +3,11 @@ import API from "../utils/api"
 
 const Existing = () => {
     const [loggedIn, setLoggedIn] = useState(false)
-    const [email, setEmail] = useState("")
-
     const [loginInfo, setLoginInfo] = useState({
         email:"",
         studentId:""
     })
+    const [userObj, setUserObj] = useState({})
     
     useEffect(() => {
         const savedToken = localStorage.getItem("token")
@@ -38,7 +37,7 @@ const Existing = () => {
         console.log(data)
         if (data.token) {
             setLoggedIn(true)
-            setEmail(data.user.email);
+            setUserObj(data.user);
             localStorage.setItem("token", data.token);
         } else {
             alert("Invalid Login Credentials")
@@ -68,18 +67,30 @@ const Existing = () => {
         })
     }
 
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2
+    })
+
 
     return (
         <div className="container page-container">
             <h3>Existing</h3>
             {loggedIn ? <div>
-                <h3>{email}</h3>
+                <h3>Welcome back, {user.name}</h3>
                 <div className="row">
-                    <div className="col-6-md">
-                        <h3>Schedule</h3>
+                    <div className="col-md-6">
+                        <h3>Schedule a Lesoon</h3>
+                        <div className="card shadow-lg">
+
+                        </div>
                     </div>
-                    <div className="col-6-md">
-                        <h3>Pay</h3>
+                    <div className="col-md-6">
+                        <h3>Pay your Balance</h3>
+                        <div className="card shadow-lg">
+                            <h4 className="card-title">Current Balance: {formatter.format(user.balance)}</h4>
+                        </div>
                     </div>
                 </div>
             </div> : <div>
