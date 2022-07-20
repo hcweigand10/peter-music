@@ -20,6 +20,8 @@ const Existing = () => {
                     localStorage.removeItem("token")
                 } else {
                     console.log(data)
+                    setLoggedIn(true)
+                    setUser(data)
                 }
             })
             .catch(err => {
