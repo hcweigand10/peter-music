@@ -32,14 +32,20 @@ const API = {
       .then(res => res.json())
   },
 
-  createUser: (email, studentId, name) => {
+  createUser: (userObj) => {
     return fetch(`${BASEURL}/api/users`, {
       method: "POST",
-      body: JSON.stringify({
-        email: email,
-        studentId: studentId,
-        name: name,
-      }),
+      body: JSON.stringify(userObj),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+  },
+
+  deleteUser: (studentId) => {
+    return fetch(`${BASEURL}/api/users/${studentId}`, {
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json"
       }
