@@ -43,6 +43,17 @@ const API = {
       .then(res => res.json())
   },
 
+  updateUser: (userObj) => {
+    return fetch(`${BASEURL}/api/users/${userObj.studentId}`, {
+      method: "PUT",
+      body: JSON.stringify(userObj),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+  },
+
   deleteUser: (studentId) => {
     return fetch(`${BASEURL}/api/users/${studentId}`, {
       method: "DELETE",

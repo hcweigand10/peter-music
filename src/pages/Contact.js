@@ -19,14 +19,14 @@ const Contact = () => {
                     <div class="col-md-3 text-center">
                         <ul class="list-unstyled mb-0">
                             <li><i class="fas fa-map-marker-alt mt-4 fa-2x"></i>
-                                <p>Seattle, WA 94126, USA</p>
+                                <p>Friday Harbor, WA</p>
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-3 text-center">
                         <ul class="list-unstyled mb-0">
                             <li><i class="fas fa-phone mt-4 fa-2x"></i>
-                                <p>+ 01 234 567 89</p>
+                                <p>+1 (360) 317-3433</p>
                             </li>
                         </ul>
                     </div>

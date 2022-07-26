@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
+import StudentDashboard from "../components/studentDashboard/StudentDashboard"
 import API from "../utils/api"
-import currencyFormatter from "../utils/currencyFormatter"
 
 const Existing = () => {
     const [loggedIn, setLoggedIn] = useState(false)
@@ -87,23 +87,7 @@ const Existing = () => {
             </div> : 
             <div>
                 {loggedIn ? 
-                <div id="user-dashboard">
-                    <h3>Welcome back, {user.name}</h3>
-                    <div className="row">
-                        <div className="col-md-6">
-                            <h3>Schedule a Lesson</h3>
-                            <div className="card shadow-lg">
-
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <h3>Pay your Balance</h3>
-                            <div className="card shadow-lg">
-                                <h4 className="card-title">Current Balance: {currencyFormatter.format(user.balance)}</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div> : 
+                <StudentDashboard student={user}/> : 
                 <div className="login-form">
                     <form onSubmit={login}>
                     <div className="form-group">

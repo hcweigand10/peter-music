@@ -1,11 +1,11 @@
 import React from "react";
 import StudentRow from "./StudentRow";
-import AddStudent from "../addStudent/AddStudent";
+import AddStudent from "../studentInfo/StudentInfo";
 import currencyFormatter from "../../utils/currencyFormatter";
 
-const StudentList = ({ studentsRaw }) => {
+const StudentList = ({ studentsRaw, setEditStudent, setView }) => {
   const students = studentsRaw.map((student) => {
-    return <StudentRow student={student} />;
+    return <StudentRow student={student} setEditStudent={setEditStudent} setView={setView}/>;
   });
 
   return (
@@ -33,7 +33,7 @@ const StudentList = ({ studentsRaw }) => {
           )}
         </p>
       </div>
-      <AddStudent />
+      <AddStudent update={false} student={null}/>
     </div>
   );
 };
