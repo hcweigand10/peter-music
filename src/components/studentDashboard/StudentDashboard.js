@@ -1,5 +1,5 @@
 import React from "react";
-import StripePaymentForm from "../stripePaymentForm/StripePaymentForm";
+import Checkout from "../checkout/Checkout";
 import currencyFormatter from "../../utils/currencyFormatter"
 
 
@@ -23,7 +23,11 @@ const StudentDashboard = ({ student }) => {
               Current Balance: {currencyFormatter.format(student.balance)}
             </h6>
             <div>
-                <StripePaymentForm student={student}/>
+            <Checkout
+            name={'The Road to learn React'}
+            description={'Only the Book'}
+            amount={1}
+          />
             </div>
           </div>
         </div>

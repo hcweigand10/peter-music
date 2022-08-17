@@ -96,7 +96,7 @@ const Existing = () => {
                     </div>
                     <div  className="form-group">
                     <label>Student ID</label>
-                    <input className="input" type="number" value={loginInfo.studentId} onChange={handleInputChange} name="studentId"/>
+                    <input className="input" type="text" value={loginInfo.studentId} onChange={handleInputChange} name="studentId"/>
                     <button className="button" onClick={login}>Login</button>
                     </div>
                     </form>
