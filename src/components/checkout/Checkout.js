@@ -1,12 +1,12 @@
 import React from "react";
 import "./checkout.css"
-import {BASEURL} from "../../utils/constants"
+import constants from "../../utils/constants"
 
 const Checkout = ({ student }) => {
 
     return (
         <>
-            <form action={`${BASEURL}/api/users/${student.id}/create-checkout-session`} method="POST">
+            <form action={`${constants.baseUrl}/api/users/${student.id}/create-checkout-session`} method="POST">
                 <button
                     className="btn"
                     type="submit"

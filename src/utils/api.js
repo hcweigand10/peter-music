@@ -1,5 +1,6 @@
-import {BASEURL} from "./constants"
+import constants from "./constants"
 
+const BASEURL = constants.baseUrl
 
 const API = {
   checkUrl: () => {
