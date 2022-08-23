@@ -1,0 +1,15 @@
+#override #stripe-checkout-btn:hover {
+    background-position: 100% 0;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+#override #stripe-checkout-btn {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    color: white;
+    background-size: 300% 100%;
+    width: 100%;
+    border-radius: 0;
+    transition: all 0.4s ease-in-out;
+}

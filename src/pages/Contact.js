@@ -33,7 +33,7 @@ const Contact = () => {
                     <div class="col-md-3 text-center">
                         <ul class="list-unstyled mb-0">
                             <li><i class="fas fa-envelope mt-4 fa-2x"></i>
-                                <p><a href="mailto:******" target="_blank" rel="noreferrer">contact@mdbootstrap.com</a></p>
+                                <p><a href="mailto:******" target="_blank" rel="noreferrer">peterstrasser@gmail.com</a></p>
                             </li>
                         </ul>
                     </div>

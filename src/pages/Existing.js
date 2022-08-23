@@ -15,7 +15,6 @@ const Existing = () => {
         const savedToken = localStorage.getItem("token")
         if (savedToken) {
             setLoading(true)
-            console.log()
             API.getTokenData(savedToken)
             .then(data => {
                 if (data.err) {
@@ -23,14 +22,15 @@ const Existing = () => {
                     setLoading(false)
                     localStorage.removeItem("token")
                 } else {
-                    console.log(data)
                     setLoading(false)
                     setLoggedIn(true)
                     setUser(data)
                 }
             })
             .catch(err => {
+                localStorage.removeItem("token")
                 console.log("bad token")
+                setLoading(false)
                 console.log(err);
             });
         }
