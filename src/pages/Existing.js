@@ -61,13 +61,13 @@ const Existing = () => {
         };
     };
 
-    // const logMeOut = ()=>{
-    //     console.log("Logging out")
-    //     setLoggedIn(false);
-    //     localStorage.removeItem("token");
-    //     setEmail("");
-    //     window.location.replace('/');
-    // }
+    const logMeOut = ()=>{
+        console.log("Logging out")
+        setLoggedIn(false);
+        localStorage.removeItem("token");
+        setUser({});
+        window.location.replace('/');
+    }
 
     const handleInputChange = e=>{
         setLoginInfo({
@@ -87,7 +87,7 @@ const Existing = () => {
             </div> : 
             <div>
                 {loggedIn ? 
-                <StudentDashboard student={user}/> : 
+                <StudentDashboard student={user} logMeOut={logMeOut}/> : 
                 <div className="login-form">
                     <form onSubmit={login}>
                     <div className="form-group">
