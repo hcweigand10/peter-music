@@ -1,109 +1,108 @@
-import React, {useState, useEffect} from "react"
-import StudentDashboard from "../components/studentDashboard/StudentDashboard"
-import API from "../utils/api"
+import React, { useState, useEffect } from "react";
+import StudentDashboard from "../components/studentDashboard/StudentDashboard";
+import LoginForm from "../components/loginForm/LoginForm";
+import API from "../utils/api";
 
 const Existing = () => {
-    const [loggedIn, setLoggedIn] = useState(false)
-    const [loading, setLoading] = useState(false)
+    const [loggedIn, setLoggedIn] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [user, setUser] = useState({});
     const [loginInfo, setLoginInfo] = useState({
-        email:"",
-        studentId:""
-    })
-    const [user, setUser] = useState({})
-    
+        email: "",
+        studentId: "",
+    });
+
     useEffect(() => {
-        const savedToken = localStorage.getItem("token")
+        const savedToken = localStorage.getItem("token");
         if (savedToken) {
-            setLoading(true)
+            setLoading(true);
             API.getTokenData(savedToken)
-            .then(data => {
-                if (data.err) {
-                    console.log(data.err)
-                    setLoading(false)
-                    localStorage.removeItem("token")
-                } else {
-                    setLoading(false)
-                    setLoggedIn(true)
-                    setUser(data)
-                }
-            })
-            .catch(err => {
-                localStorage.removeItem("token")
-                console.log("bad token")
-                setLoading(false)
-                console.log(err);
-            });
+                .then((data) => {
+                    if (data.err) {
+                        console.log(data.err);
+                        setLoading(false);
+                        localStorage.removeItem("token");
+                    } else {
+                        setLoading(false);
+                        setLoggedIn(true);
+                        setUser(data);
+                    }
+                })
+                .catch((err) => {
+                    localStorage.removeItem("token");
+                    console.log("bad token");
+                    setLoading(false);
+                    console.log(err);
+                });
         }
-    },[]);
+    }, []);
+
+    const handleInputChange = (e) => {
+        setLoginInfo({
+            ...loginInfo,
+            [e.target.name]: e.target.value,
+        });
+    };
 
     const login = async (e) => {
-        console.log("LOGGING IN!", loginInfo)
-        setLoading(true)
-        e.preventDefault()
+        e.preventDefault();
+        console.log("LOGGING IN!", loginInfo);
+        setLoading(true);
         try {
-            const data = await API.login(loginInfo.email, loginInfo.studentId)
-            console.log(data)
+            const data = await API.login(loginInfo.email, loginInfo.studentId);
+            console.log(data);
             if (data.token) {
-                setLoading(false)
-                setLoggedIn(true)
+                setLoading(false);
+                setLoggedIn(true);
                 setUser(data.user);
                 localStorage.setItem("token", data.token);
             } else {
-                setLoading(false)
-                alert("Invalid Login Credentials")
+                setLoading(false);
+                alert("Invalid Login Credentials");
                 setLoginInfo({
                     email: "",
-                    studentId: ""
-                })
+                    studentId: "",
+                });
             }
         } catch (err) {
             console.log(err);
-        };
+        }
     };
 
-    const logMeOut = ()=>{
-        console.log("Logging out")
+    const logMeOut = () => {
+        console.log("Logging out");
         setLoggedIn(false);
         localStorage.removeItem("token");
         setUser({});
-        window.location.replace('/');
-    }
-
-    const handleInputChange = e=>{
-        setLoginInfo({
-        ...loginInfo,
-        [e.target.name]:e.target.value
-        })
-    }
-
+        window.location.replace("/");
+    };
 
     return (
         <div className="container page-container">
-            {loading ? 
-            <div className="loading-screen">
-                <div class="spinner-border" role="status">
-                    <span class="sr-only">Loading...</span>
+            {loading ? (
+                <div className="loading-screen">
+                    <div class="spinner-border" role="status"></div>
+                    <span class="ms-2">
+                        Loading... (this could take a few seconds)
+                    </span>
                 </div>
-            </div> : 
-            <div>
-                {loggedIn ? 
-                <StudentDashboard student={user} logMeOut={logMeOut}/> : 
-                <div className="login-form">
-                    <form onSubmit={login}>
-                    <div className="form-group">
-                    <label>Email</label>
-                    <input className="input" type="text" value={loginInfo.email} onChange={handleInputChange} name="email"/>
-                    </div>
-                    <div  className="form-group">
-                    <label>Student ID</label>
-                    <input className="input" type="text" value={loginInfo.studentId} onChange={handleInputChange} name="studentId"/>
-                    <button className="button" onClick={login}>Login</button>
-                    </div>
-                    </form>
-                </div>}
-            </div>}
+            ) : (
+                <div>
+                    {loggedIn ? (
+                        <StudentDashboard student={user} logMeOut={logMeOut} />
+                    ) : (
+                        <LoginForm
+                            login={login}
+                            handleInputChange={handleInputChange}
+                            loginInfo={loginInfo}
+                            title={"Student Login"}
+                        />
+                    )}
+                </div>
+            )}
         </div>
-    )
-}
+    );
+};
 
-export default Existing
+
+export default Existing;

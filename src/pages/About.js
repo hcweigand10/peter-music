@@ -31,7 +31,7 @@ const About = () => {
                     </div>
                 </div>
             </section>
-            <section className="pb-3">
+            <section className="pt-4 mb-3">
             <h5 class="text-center w-responsive mx-auto mb-4">
                     Do you have any questions? Please do not hesitate to contact
                     me directly!
