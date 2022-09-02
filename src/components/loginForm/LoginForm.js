@@ -1,3 +1,5 @@
+import React from "react"
+
 const LoginForm = ({ login, handleInputChange, loginInfo, title }) => {
     return (
         <div className="container">
