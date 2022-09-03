@@ -59,11 +59,11 @@ const About = () => {
                                 <i class="fas fa-envelope mt-4 fa-2x"></i>
                                 <p>
                                     <a
-                                        href="mailto:******"
+                                        href="mailto:peterstrass39@gmail.com"
                                         target="_blank"
                                         rel="noreferrer"
                                     >
-                                        peterstrasser@gmail.com
+                                        peterstrass39@gmail.com
                                     </a>
                                 </p>
                             </li>
