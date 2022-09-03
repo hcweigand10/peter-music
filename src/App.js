@@ -6,12 +6,23 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Existing from "./pages/Existing"
 import Admin from "./pages/Admin"
+import API from "./utils/api.js";
 import PaymentFailed from "./components/paymentResults/paymentFailed.js";
 import PaymentSuccess from "./components/paymentResults/paymentSuccess.js";
     
 
 
 const App = () => {
+
+    useEffect(() => {
+      checkUsers()
+    }, [])
+    
+    const checkUsers = async () => {
+        const users = await API.getUsers()
+        console.log(users.length)
+    }
+
     return (
         <>
         <Navbar/>
