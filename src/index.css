@@ -135,7 +135,7 @@ code {
 	opacity: 0;
 	width: 110px;
 	height: 110px;
-	border: 10px solid #00baff;
+	border: 10px solid var(--lightgrey);
 	-webkit-border-radius: 100px;
 	-moz-border-radius: 100px;
 	-o-border-radius: 100px;
