@@ -74,9 +74,12 @@ code {
   opacity: 0.5;
   height: 120px;
   width: 120px;
-  margin: 350px auto 0;
-  position: relative;
-  bottom: 0;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 .circle {
   height: 120px;
