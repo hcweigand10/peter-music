@@ -73,27 +73,14 @@ const Navbar = () => {
                         <li className="nav-item">
                             <Link
                                 className={
-                                    activePage === "/about"
+                                    activePage === "/student-portal"
                                         ? "nav-link custom-link-active"
                                         : "nav-link custom-link"
                                 }
-                                to="/about"
-                                onClick={() => handlePageChange("/about")}
+                                to="/student-portal"
+                                onClick={() => handlePageChange("/student-portal")}
                             >
-                                About
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link
-                                className={
-                                    activePage === "/existing"
-                                        ? "nav-link custom-link-active"
-                                        : "nav-link custom-link"
-                                }
-                                to="/existing"
-                                onClick={() => handlePageChange("/existing")}
-                            >
-                                Existing Students
+                                Student Portal
                             </Link>
                         </li>
                     </ul>

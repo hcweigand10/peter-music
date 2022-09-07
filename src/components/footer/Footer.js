@@ -20,9 +20,6 @@ const Footer = () => {
 
                 <hr class="w-100 clearfix d-md-none" />
                 <div class="col-md-5 col-lg-5 col-xl-5 mx-auto">
-                    <h4 class="text-uppercase text-center mb-2 font-weight-bold">
-                    Contact
-                    </h4>
                     <ul class="text-center list-unstyled align-items-center py-0">
                         <li className="mb-1"><FontAwesomeIcon icon={faHome}/> Friday Harbor, WA</li>
                         <li className="mb-1"><FontAwesomeIcon icon={faEnvelope}/> peterstrasser@gmail.com</li>

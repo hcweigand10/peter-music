@@ -3,7 +3,6 @@ import {Routes, Route} from "react-router-dom"
 import Navbar from "./components/navbar/Navbar.js"
 import Footer from "./components/footer/Footer.js"
 import Home from "./pages/Home"
-import About from "./pages/About"
 import Existing from "./pages/Existing"
 import Admin from "./pages/Admin"
 import API from "./utils/api.js";
@@ -28,10 +27,9 @@ const App = () => {
         <Navbar/>
         <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="/about" element={<About/>}/>            
-            <Route path="/existing" element={<Existing/>}/>
-            <Route path="/existing/payment_sucess" element={<PaymentSuccess/>}/>
-            <Route path="/existing/payment_failed" element={<PaymentFailed/>}/>
+            <Route path="/student-portal" element={<Existing/>}/>
+            <Route path="/student-portal/payment_sucess" element={<PaymentSuccess/>}/>
+            <Route path="/student-portal/payment_failed" element={<PaymentFailed/>}/>
             <Route path="/admin" element={<Admin/>}/>
         </Routes>
         <Footer/>  
