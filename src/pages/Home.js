@@ -61,7 +61,7 @@ const Home = () => {
                     <h4 className="text-center">$40 per session</h4>
                     <div
                         className="row my-1 mx-auto p-3"
-                        style={{ width: "350px" }}
+                        style={{ width: "320px" }}
                     >
                         <div className="">
                             <span style={{ float: "left" }}>
