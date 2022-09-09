@@ -116,7 +116,7 @@ const Home = () => {
                     <div className="d-flex justify-content-center">
                         <hr className="underline-primary" />
                     </div>
-                    <div class="row justify-content-center w-100">
+                    <div class="row justify-content-center w-100 m-0">
                         <div class="col-md-6 text-center">
                             <ul class="list-unstyled mb-0">
                                 <li>
