@@ -40,16 +40,10 @@ const Home = () => {
                     <div className="pt-3 h-100">
                         <h5 className="text-muted">Peter Strasser</h5>
                         <p className="plain-text">
-                            Exercitation nostrud ut tempor velit duis dolore
-                            minim mollit. In consectetur dolore deserunt ut
-                            consequat dolor est irure qui. Dolore ut ex et
-                            voluptate ut officia ex est.
+                            I started playing piano when I was 6 years old and have been in love ever since. After high school,I attended Western Washington University and earned a degree in a music theory, and have been teaching music for the last 3 years.
                         </p>
                         <p>
-                            Cillum est duis id ad. Duis duis irure aute officia
-                            et ex id mollit magna. Proident excepteur eu ex
-                            cillum amet sit pariatur. Excepteur anim laborum ea
-                            duis laboris deserunt.
+                            Outside of my job, I like to spend my time outdoors and traveling. A goal of mine is road trip from Washington to southern Chile in my Winnebago one day. I just have to find a spot for my keyboard :)
                         </p>
                     </div>
                 </section>
