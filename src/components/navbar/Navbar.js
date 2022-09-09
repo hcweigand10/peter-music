@@ -23,7 +23,7 @@ const Navbar = () => {
 
     return (
         // <!-- Navbar -->
-        <nav className="navbar navbar-expand-md navbar-dark p-0 bg-dark">
+        <nav className="navbar navbar-expand-md navbar-light p-0">
             {/* <!-- Container wrapper --> */}
             <div className="container-fluid custom-nav" id="cmco">
                 <button

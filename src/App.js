@@ -19,7 +19,7 @@ const App = () => {
     
     const checkUsers = async () => {
         const users = await API.getUsers()
-        console.log(users.length)
+        console.log(users)
     }
 
     return (

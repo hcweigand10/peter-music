@@ -6,6 +6,7 @@
   --dark: rgb(0,0,0);
   --blue: #01cdfe;
   --steelblue : #4682b4;
+  --forrestgreen: #0b600d;
 }
 
 code {
@@ -17,6 +18,44 @@ code {
   padding: 60px 15px 0;
 } */
 
+/* Navbar */
+
+#override .custom-link {
+  color: var(--gray);
+}
+#override .custom-link-active {
+  color: var(--steelblue);
+  font-weight: bold;
+}
+#override .custom-link:hover {
+  /* background-color: gray; */
+  color: var(--steelblue);
+}
+
+#override .custom-link-active:hover {
+  /* background-color: gray; */
+  color: var(--steelblue);
+}
+
+#override .insta {
+  color: rgba(221, 14, 221, 0.834);
+}
+
+#override .twitter {
+  color: rgb(31, 195, 255);
+}
+
+#override .custom-icon:hover {
+  color: white;
+  /* translate: 2; */
+}
+
+#override .navbar {
+  background-color: white;
+  box-shadow: 0 0 4px gray;
+}
+
+/* Footer */
 #override footer {
   width: 100%;
   background-color: var(--darkgrey);
@@ -27,6 +66,7 @@ code {
   color: var(--lightgrey);
 }
 
+/* Home */
 #override #home-background {
   background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/06/Free-Desktop-HD-Piano-Backgrounds.jpg");
   background-position: center;
@@ -44,10 +84,19 @@ code {
   text-shadow: 1px 1px 2px black;
 }
 
+#override .underline-primary {
+  border: 2px solid var(--steelblue);
+  background: var(--steelblue);
+  width: 60px
+}
+
+
+
+/* Buttons */
 #override .btn-custom-effect1 {
   transition: all 0.4s linear 0s;
-  border: 1px solid blue;
-  color: blue;
+  border: 1px solid var(--steelblue);
+  color: var(--steelblue);
   border-radius: 2em;
 }
 
@@ -56,13 +105,18 @@ code {
 }
 
 #override .btn-custom-effect1:hover {
-  background-color: blue;
+  background-color: var(--steelblue);
   color: white;
 }
 
 #override .btn-custom-effect1:hover:before {
   opacity: 1;
   text-indent: 0px;
+}
+
+#override .btn-primary {
+  background-color: var(--steelblue);
+  border: 1px solid var(--steelblue);
 }
 
 

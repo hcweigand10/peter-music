@@ -33,11 +33,9 @@ const Home = () => {
             </div>
             <div class="col-md-10 col-lg-11 row px-4 py-5 mx-auto">
                 <section className="py-4 col-xl-4" id="about">
-                    <h2 className="text-center section-heading mb-1">About</h2>
+                    <h2 className="text-center section-heading mb-0">About</h2>
                     <div className="d-flex justify-content-center">
-                        <hr
-                            style={{ width: "60px", border: "1px solid gray" }}
-                        />
+                        <hr className="underline-primary" />
                     </div>
                     <div className="pt-3 h-100">
                         <h5 className="text-muted">Peter Strasser</h5>
@@ -56,11 +54,9 @@ const Home = () => {
                     </div>
                 </section>
                 <section className="py-4 col-xl-4">
-                    <h2 className="text-center section-heading mb-1">Rates</h2>
+                    <h2 className="text-center section-heading mb-0">Rates</h2>
                     <div className="d-flex justify-content-center">
-                        <hr
-                            style={{ width: "60px", border: "1px solid gray" }}
-                        />
+                        <hr className="underline-primary" />
                     </div>
                     <h4 className="text-center">$40 per session</h4>
                     <div
@@ -114,13 +110,11 @@ const Home = () => {
                     </div>
                 </section>
                 <section className="py-4 col-xl-4">
-                    <h2 className="text-center section-heading mb-1">
+                    <h2 className="text-center section-heading mb-0">
                         Contact
                     </h2>
                     <div className="d-flex justify-content-center">
-                        <hr
-                            style={{ width: "60px", border: "1px solid gray" }}
-                        />
+                        <hr className="underline-primary" />
                     </div>
                     <div class="row justify-content-center w-100">
                         <div class="col-md-6 text-center">
