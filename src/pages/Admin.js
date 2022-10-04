@@ -15,7 +15,6 @@ const Admin = () => {
         const savedToken = localStorage.getItem("token");
         if (savedToken) {
             setLoading(true);
-            console.log();
             API.getTokenData(savedToken)
                 .then((data) => {
                     if (data.err) {
@@ -23,9 +22,7 @@ const Admin = () => {
                         setLoading(false);
                         localStorage.removeItem("token");
                     } else {
-                        console.log(data);
                         setLoading(false);
-                        // setLoggedIn(true)
                         setUser(data);
                     }
                 })

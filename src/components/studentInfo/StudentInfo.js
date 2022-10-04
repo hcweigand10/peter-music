@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useMutation, useQueryClient } from "react-query";
 import API from "../../utils/api";
 
 const StudentInfo = ({ update, student }) => {
@@ -8,6 +9,27 @@ const StudentInfo = ({ update, student }) => {
         studentId: "",
         balance: 0,
     });
+
+    const queryClient = useQueryClient();
+
+    const { isLoading: createIsLoading, mutate: createMutate } = useMutation(
+        API.createUser,
+        {
+            onSuccess: () => {
+                queryClient.invalidateQueries("students");
+                clearForm()
+            },
+        }
+    );
+
+    const { isLoading: updateIsLoading, mutate: updateMutate } = useMutation(
+        API.updateUser,
+        {
+            onSuccess: () => {
+                queryClient.invalidateQueries("students");
+            },
+        }
+    );
 
     useEffect(() => {
         if (update) {
@@ -30,28 +52,42 @@ const StudentInfo = ({ update, student }) => {
     const createUser = async (e) => {
         e.preventDefault();
         if (typeof parseInt(newUserInfo.balance) != "number") {
-            alert("Balance must be an integer")
-            return
+            alert("Balance must be an integer");
+            return;
         }
-        const res = await API.createUser(newUserInfo);
-        console.log(res);
-        document.location.reload();
+        createMutate(newUserInfo);
     };
 
     const updateUser = async (e) => {
         e.preventDefault();
-        if (student.name === newUserInfo.name && student.email === newUserInfo.email && student.studentId === newUserInfo.studentId && student.balance === newUserInfo.balance) {
-            alert("No changes made")
-            return
+        if (
+            student.name === newUserInfo.name &&
+            student.email === newUserInfo.email &&
+            student.studentId === newUserInfo.studentId &&
+            student.balance === newUserInfo.balance
+        ) {
+            alert("No changes made");
+            return;
         }
         if (typeof parseInt(newUserInfo.balance) != "number") {
-            alert("Balance must be an integer")
-            return
+            alert("Balance must be an integer");
+            return;
         }
-        const res = await API.updateUser(newUserInfo);
-        console.log(res);
-        document.location.reload();
+        updateMutate(newUserInfo);
     };
+
+    const clearForm = () => {
+        setNewUserInfo({
+            name: "",
+            email: "",
+            studentId: "",
+            balance: 0,
+        });
+    };
+
+    if (createIsLoading || updateIsLoading) {
+        return <h3>Loading...</h3>;
+    }
 
     return (
         <form className="card shadow-sm p-3">
@@ -59,7 +95,12 @@ const StudentInfo = ({ update, student }) => {
                 <h4>{update ? "Update Student" : "Create New Student"}</h4>
             </div>
             <div className="form-group mb-2">
-                <label htmlFor="new-student-name" style={{fontStyle: "italic", color: "gray"}}>Name</label>
+                <label
+                    htmlFor="new-student-name"
+                    style={{ fontStyle: "italic", color: "gray" }}
+                >
+                    Name
+                </label>
                 <input
                     id="new-student-name"
                     className="form-control"
@@ -68,11 +109,16 @@ const StudentInfo = ({ update, student }) => {
                     value={newUserInfo.name}
                     onChange={handleInputChange}
                     name="name"
-                    style={{backroundColor: "lightgray"}}
+                    style={{ backroundColor: "lightgray" }}
                 />
             </div>
             <div className="form-group mb-2">
-                <label htmlFor="new-student-name" style={{fontStyle: "italic", color: "gray"}}>Email</label>
+                <label
+                    htmlFor="new-student-name"
+                    style={{ fontStyle: "italic", color: "gray" }}
+                >
+                    Email
+                </label>
                 <input
                     id="new-student-email"
                     className="form-control"
@@ -84,7 +130,12 @@ const StudentInfo = ({ update, student }) => {
                 />
             </div>
             <div className="form-group mb-2">
-                <label htmlFor="new-student-id" style={{fontStyle: "italic", color: "gray"}}>Student ID</label>
+                <label
+                    htmlFor="new-student-id"
+                    style={{ fontStyle: "italic", color: "gray" }}
+                >
+                    Student ID
+                </label>
                 <input
                     id="new-student-id"
                     className="form-control"
@@ -96,7 +147,12 @@ const StudentInfo = ({ update, student }) => {
                 />
             </div>
             <div className="form-group mb-2">
-                <label htmlFor="new-student-balance" style={{fontStyle: "italic", color: "gray"}}>Balance (in whole $)</label>
+                <label
+                    htmlFor="new-student-balance"
+                    style={{ fontStyle: "italic", color: "gray" }}
+                >
+                    Balance (in whole $)
+                </label>
                 <input
                     id="new-student-balance"
                     className="form-control"

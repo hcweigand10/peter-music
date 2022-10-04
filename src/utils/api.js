@@ -66,7 +66,7 @@ const API = {
     .then(res=> res.json())
   },
 
-  getUsers: () => {
+  getStudents: () => {
     return fetch(`${BASEURL}/api/users`)
     .then(res => res.json())
   },

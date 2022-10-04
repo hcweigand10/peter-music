@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+import Loading from "../components/loading/Loading";
 import StudentDashboard from "../components/studentDashboard/StudentDashboard";
 import LoginForm from "../components/loginForm/LoginForm";
 import API from "../utils/api";
@@ -80,12 +82,7 @@ const Existing = () => {
     return (
         <div className="container page-container">
             {loading ? (
-                <div className="loading-screen">
-                    <div class="spinner-border" role="status"></div>
-                    <span class="ms-2">
-                        Loading... (this could take a few seconds)
-                    </span>
-                </div>
+                <Loading/>
             ) : (
                 <div>
                     {loggedIn ? (

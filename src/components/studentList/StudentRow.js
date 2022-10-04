@@ -1,17 +1,33 @@
 import React, {} from "react"
 import { Dropdown } from "react-bootstrap"
+import {useMutation, useQueryClient} from "react-query"
 import API from "../../utils/api"
 import currencyFormatter from "../../utils/currencyFormatter"
 
 
 
 const StudentRow = ({student, setEditStudent, setView}) => {
+
+    const queryClient = useQueryClient()
+
+    const {isLoading, mutate} = useMutation(API.deleteUser, {
+        onSuccess: () => {
+            queryClient.invalidateQueries("students")
+        }
+    })
+
     const removeStudent = async () => {
         if (window.confirm(`Are you sure you want to delete ${student.name}?`)) {
-            const res = await API.deleteUser(student.studentId)
-            console.log(res)
-            document.location.reload()
+            mutate(student.studentId)
         }
+    }
+
+    if (isLoading) {
+        return (
+            <tr>
+                <th>Saving Changes...</th>
+            </tr>
+        )
     }
 
     return (
