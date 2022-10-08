@@ -10,7 +10,7 @@ import Loading from "../loading/Loading";
 const AdminDashboard = ({ logOut }) => {
     const [view, setView] = useState("all");
     const [editStudent, setEditStudent] = useState({});
-    
+   
     const { data: students, isLoading } = useQuery(["students"], API.getStudents);
 
     useEffect(() => {

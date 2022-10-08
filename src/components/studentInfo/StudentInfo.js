@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import API from "../../utils/api";
+import Modal from "../modal/Modal";
 
 const StudentInfo = ({ update, student }) => {
     const [newUserInfo, setNewUserInfo] = useState({
@@ -9,6 +10,7 @@ const StudentInfo = ({ update, student }) => {
         studentId: "",
         balance: 0,
     });
+    const [modal, setModal] = useState(false)
 
     const queryClient = useQueryClient();
 
@@ -18,6 +20,7 @@ const StudentInfo = ({ update, student }) => {
             onSuccess: () => {
                 queryClient.invalidateQueries("students");
                 clearForm()
+                setModal(true)
             },
         }
     );
@@ -27,6 +30,7 @@ const StudentInfo = ({ update, student }) => {
         {
             onSuccess: () => {
                 queryClient.invalidateQueries("students");
+                setModal(true)
             },
         }
     );
@@ -88,6 +92,12 @@ const StudentInfo = ({ update, student }) => {
     if (createIsLoading || updateIsLoading) {
         return <h3>Loading...</h3>;
     }
+
+    
+    if (modal) {
+        return <Modal />
+    }
+
 
     return (
         <form className="card shadow-sm p-3">
