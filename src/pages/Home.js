@@ -10,7 +10,7 @@ const Home = () => {
                     <div className="col-md-10 col-lg-6 text-center">
                         <img
                             className=""
-                            src="https://scontent-sea1-1.xx.fbcdn.net/v/t39.30808-6/306573647_6230273193656359_6543961263340102600_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=kwCnvedIuSEAX-jSVG_&_nc_ht=scontent-sea1-1.xx&oh=00_AT9fx-2uR6CbtAWoqvRMZ6V21I3IkwwsJZVuTbG9HoD4OA&oe=634DE26D"
+                            src="https://ibb.co/RQ9J7yt"
                             alt="Peter Headshot"
                             id="profile-pic"
                             style={{ objectFit: "cover", maxWidth: "65%" }}
