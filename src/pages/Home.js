@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import peterPic from "../images/peter-profile.png"
 
 const Home = () => {
     return (
@@ -10,7 +11,7 @@ const Home = () => {
                     <div className="col-md-10 col-lg-6 text-center">
                         <img
                             className=""
-                            src="https://ibb.co/RQ9J7yt"
+                            src={peterPic}
                             alt="Peter Headshot"
                             id="profile-pic"
                             style={{ objectFit: "cover", maxWidth: "65%" }}
